@@ -10,7 +10,7 @@ An android library to add link preview in any android application. This library 
 ## Preview
 <img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>
 
-## How to use
+## Setup
 **Step 1:**
 Add it in your root build.gradle at the end of repositories:
 ```
@@ -54,7 +54,7 @@ Update **res->values->style.xml** file. Replace base application theme with the 
 <uses-permission android:name="android.permission.INTERNET"/>
 ```
 That's it. You are good to go!
-
+## How to use
 Add **LinkPreview** widget in XML as below
 ```
 <com.workfort.linkpreview.LinkPreview
@@ -92,14 +92,49 @@ For changing the view use `app:previewStyle`:
     app:layout_constraintRight_toRightOf="parent"
     app:layout_constraintTop_toTopOf="parent" />
 ```
-Parameters in xml:
+When clicking on the link, by default the library opens the link on a browser. If you want to handle the click event by yourself use the following callback:
+```
+linkPreview.setClickListener(object: LinkClickListener {
+    override fun onClick(view: View, metaData: MetaData) {
+        //Customise the click action
+    }
+})
+```
+By overriding the click listener the default click action will be disabled.
+
+## Parameters in xml
 |name|value|description|
 |---|---|---|
-|url|string|Url to preview. Default is empty|
-|previewStyle|simple/banner/strip/details|View for the LinkPreview widget|
-|enableDefaultClick|boolean|Open the link if clicked. True by default|
+|url|string|Url to preview. Default is empty.|
+|previewStyle|simple/banner/strip/details|View for the LinkPreview widget.|
+|enableDefaultClick|boolean|Open the link if clicked. True by default.|
 
+## Advance
+1. If you want to use your own preview, use the following callback:
+```
+UrlParser(url, object : ParserCallback {
+    override fun onData(metaData: MetaData) {
+        //Use metaData to get title, image, description etc
+        //and set that to your custom view
+    }
 
+    override fun onError(exception: Exception) {
+        //Handle the exception here
+    }
+}).parse()
+```
+2. If you want to customize the data shown in the built in view, change the **metaData* and update LinkPreview:
+```
+linkPreview.loadFromMetaData(your-MetaData-here)
+```
+
+## Others
+For more information please check the sample project.
+The library is free to use. If you wish to change or update please create a separate branch and make pull request.
+
+## Contact
+For any question or suggestion feel free to send an email:
+**ashik.pstu.cse@gmail.com**
 
 ## License
                                  Apache License

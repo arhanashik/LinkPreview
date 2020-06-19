@@ -19,9 +19,6 @@ import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_title
 import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_url
 import kotlinx.android.synthetic.main.layout_link_preview_banner.view.*
 import kotlinx.android.synthetic.main.layout_link_preview_details.view.*
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class LinkPreview @JvmOverloads constructor(
     context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
@@ -150,7 +147,7 @@ class LinkPreview @JvmOverloads constructor(
         this.mListener = listener
     }
 
-    fun setLinkFromMeta(metaData: MetaData) {
+    fun loadFromMetaData(metaData: MetaData) {
         this.mMetaData = metaData
         setData()
     }
@@ -159,11 +156,9 @@ class LinkPreview @JvmOverloads constructor(
         mUrl = url
         UrlParser(url, object : ParserCallback {
             override fun onData(metaData: MetaData) {
-                CoroutineScope(Dispatchers.Main).launch {
-                    mMetaData = metaData
-                    setData()
-                    callback?.onSuccess(metaData)
-                }
+                mMetaData = metaData
+                setData()
+                callback?.onSuccess(metaData)
             }
 
             override fun onError(exception: Exception) {

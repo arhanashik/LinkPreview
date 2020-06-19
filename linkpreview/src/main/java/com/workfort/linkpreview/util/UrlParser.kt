@@ -27,11 +27,16 @@ class UrlParser(private val url: String, private val callback: ParserCallback) {
                     val doc = Jsoup.connect(url).timeout(30 * 1000).get()
                     val metaData = parseDoc(url, doc)
 
-                    callback.onData(metaData)
+                    withContext(Dispatchers.Main) {
+                        callback.onData(metaData)
+                    }
                 }catch (ex: IOException) {
-                    callback.onError(
-                        Exception("No Html Received from $url. ${ex.localizedMessage}")
-                    )
+                    ex.printStackTrace()
+                    withContext(Dispatchers.Main) {
+                        callback.onError(
+                            Exception("No Html Received from $url. ${ex.localizedMessage}")
+                        )
+                    }
                 }
             }
         }
