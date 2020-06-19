@@ -124,6 +124,12 @@ linkPreview.loadFromMetaData(your-MetaData-here)
 For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
+## Thanks!
+Thank you for reading and using the library!
+
+## Inspiration
+[RichLinkPreview](https://github.com/PonnamKarthik/RichLinkPreview)
+
 ## Contact
 For any question or suggestion feel free to send an email:
 **ashik.pstu.cse@gmail.com**
