@@ -95,9 +95,9 @@ For changing the view use `app:previewStyle`:
 Parameters in xml:
 |name|value|description|
 |---|---|---|
-|url|string|url to preview. Default is empty|
-|previewStyle|simple/banner/strip/details|view for the LinkPreview widget|
-|enableDefaultClick|boolean|determines if the library should open the link if clicked. Default is true|
+|url|string|Url to preview. Default is empty|
+|previewStyle|simple/banner/strip/details|View for the LinkPreview widget|
+|enableDefaultClick|boolean|Open the link if clicked. True by default|
 
 
 
