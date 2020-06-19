@@ -67,6 +67,38 @@ You can change the url at runtime from your java/kotin code.
 ```
 linkPreview.load("your-url")
 ```
+If can also add a callback(optional):
+```
+linkPreview.load(url, object: LinkViewCallback {
+    override fun onSuccess(data: MetaData) {
+        Log.d("LinkPreview", "Loaded: $url")
+    }
+
+    override fun onError(exception: Exception) {
+        exception.printStackTrace()
+    }
+})
+```
+For changing the view use `app:previewStyle`:
+```
+<com.workfort.linkpreview.LinkPreview
+    android:id="@+id/linkPreview"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:url="https://facebook.com"
+    app:previewStyle="banner"
+    app:layout_constraintBottom_toTopOf="@id/linkPreviewBanner"
+    app:layout_constraintLeft_toLeftOf="parent"
+    app:layout_constraintRight_toRightOf="parent"
+    app:layout_constraintTop_toTopOf="parent" />
+```
+Parameters in xml:
+|name|value|description|
+|---|---|---|
+|url|string|url to preview. Default is empty|
+|previewStyle|simple/banner/strip/details|view for the LinkPreview widget|
+|enableDefaultClick|boolean|determines if the library should open the link if clicked. Default is true|
+
 
 
 ## License
