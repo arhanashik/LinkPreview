@@ -83,7 +83,7 @@ For changing the view use `app:previewStyle`:
     app:url="https://facebook.com"
     app:previewStyle="banner" />
 ```
-When clicking on the link, by default the library opens the link on a browser. For handling the click event:
+When clicked on the link, by default the library opens the link on a browser. For handling the click event:
 ```
 linkPreview.setClickListener(object: LinkClickListener {
     override fun onClick(view: View, metaData: MetaData) {
@@ -96,9 +96,9 @@ By overriding the click listener the default click action will be disabled.
 ## Parameters in xml
 |name|value|description|
 |---|---|---|
-|url|string|Url to preview. Default is empty.|
-|previewStyle|simple/banner/strip/details|View for the LinkPreview widget.|
-|enableDefaultClick|boolean|Open the link if clicked. True by default.|
+|app:url|string|Url to preview. Default is empty.|
+|app:previewStyle|simple/banner/strip/details|View for the LinkPreview widget.|
+|app:enableDefaultClick|boolean|Open the link if clicked. True by default.|
 
 ## Advance
 1. If you want to use your own preview, use the following callback:
