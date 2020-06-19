@@ -10,7 +10,7 @@ import coil.api.load
 import com.workfort.linkpreview.callback.LinkClickListener
 import com.workfort.linkpreview.callback.LinkViewCallback
 import com.workfort.linkpreview.callback.ParserCallback
-import com.workfort.linkpreview.util.UrlParser
+import com.workfort.linkpreview.util.LinkParser
 import kotlinx.android.synthetic.main.layout_link_preview.view.loader
 import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_card
 import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_desp
@@ -154,7 +154,7 @@ class LinkPreview @JvmOverloads constructor(
 
     fun load(url: String, callback: LinkViewCallback? = null) {
         mUrl = url
-        UrlParser(url, object : ParserCallback {
+        LinkParser(url, object : ParserCallback {
             override fun onData(metaData: MetaData) {
                 mMetaData = metaData
                 setData()

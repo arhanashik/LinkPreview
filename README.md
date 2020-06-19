@@ -103,7 +103,7 @@ By overriding the click listener the default click action will be disabled.
 ## Advance
 1. If you want to use your own preview, use the following callback:
 ```
-UrlParser(url, object : ParserCallback {
+LinkParser(url, object : ParserCallback {
     override fun onData(metaData: MetaData) {
         //Use metaData to get title, image, description etc
         //and set that to your custom view
@@ -114,14 +114,14 @@ UrlParser(url, object : ParserCallback {
     }
 }).parse()
 ```
-2. If you want to customize the data shown in the built in view, change the **metaData* and update LinkPreview:
+2. If you want to customize the data shown in the built in view, change the **metaData** and update LinkPreview:
 ```
 linkPreview.loadFromMetaData(your-MetaData-here)
 ```
 
 ## Others
 For more information please check the sample project.
-The library is free to use. If you wish to change or update please create a separate branch and make pull request.
+The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
 ## Contact
 For any question or suggestion feel free to send an email:

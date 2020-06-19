@@ -15,7 +15,7 @@ import java.io.IOException
 import java.net.URI
 import java.net.URISyntaxException
 
-class UrlParser(private val url: String, private val callback: ParserCallback) {
+class LinkParser(private val url: String, private val callback: ParserCallback) {
 
     /*
     * Start parsing the html from the given url
