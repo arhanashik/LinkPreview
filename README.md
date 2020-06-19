@@ -8,7 +8,7 @@ An android library to add link preview in any android application.
 [![License](https://img.shields.io/github/license/arhanashik/LinkPreview)
 
 ## Preview
-![Screen Shot](app/sampledata/screenshot.png){:height="50%" width="50%"}
+![Screen Shot](app/sampledata/screenshot.png){:height="36px" width="36px"}
 
 ## License
                                  Apache License
