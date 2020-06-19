@@ -11,8 +11,7 @@ An android library to add preview for any url in any android application. This l
 <img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>
 
 ## Setup
-**Step 1:**
-Add it in your root build.gradle at the end of repositories:
+**Step 1:** Add it in your root build.gradle at the end of repositories:
 ```
 allprojects {
     repositories {
@@ -25,7 +24,7 @@ Add the dependency:
 ```
 implementation 'com.github.arhanashik:LinkPreview:1.0.0'
 ```
-**Step 2:** You need to add the following for Java 8 support(Necessary for coil):
+**Step 2:** You need to add Java 8 support(Necessary for coil):
 ```
 android {
     ...
@@ -48,10 +47,6 @@ Update **res->values->style.xml** file. Replace base application theme with the 
     <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
     <item name="colorAccent">@color/colorAccent</item>
 </style>
-```
-**Step 4:** Add internet permission in manifest file
-```
-<uses-permission android:name="android.permission.INTERNET"/>
 ```
 That's it. You are good to go!
 ## How to use
