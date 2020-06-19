@@ -83,7 +83,7 @@ For changing the view use `app:previewStyle`:
     app:url="https://facebook.com"
     app:previewStyle="banner" />
 ```
-When clicking on the link, by default the library opens the link on a browser. If you want to handle the click event by yourself use the following callback:
+When clicking on the link, by default the library opens the link on a browser. For handling the click event:
 ```
 linkPreview.setClickListener(object: LinkClickListener {
     override fun onClick(view: View, metaData: MetaData) {
