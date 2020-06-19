@@ -25,7 +25,7 @@ Add the dependency:
 ```
 implementation 'com.github.arhanashik:LinkPreview:1.0.0'
 ```
-**Step 2:** This library uses new **coil** library for image loader. You need to add the following for Java 8 support for coil:
+**Step 2:** You need to add the following for Java 8 support(Necessary for coil):
 ```
 android {
     ...
@@ -35,11 +35,11 @@ android {
     }
 }
 ```
-**Step 3:** Google's **material** design library is used in this project which is really good to use in any project. Add the following dependency:
+**Step 3:** Add Google's **material** design library:
 ```
 implementation 'com.google.android.material:material:1.3.0-alpha01'
 ```
-And then change the **style.xml** file inside values folder to use material theme. Replace base application theme with the following:
+Update **res->values->style.xml** file. Replace base application theme with the following:
 ```
 <!-- Base application theme. -->
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
