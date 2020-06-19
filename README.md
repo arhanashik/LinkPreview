@@ -1,6 +1,6 @@
 # LinkPreview
 
-An android library to add link preview in any android application. This library uses the latest kotlin language including **coroutine**, **coil** and google's **material** design library.
+An android library to add preview for any url in any android application. This library uses the latest kotlin language including **coroutine**, **coil** and google's **material** design library.
 
 [![Latest version](https://jitpack.io/v/arhanashik/LinkPreview.svg)](https://jitpack.io/#arhanashik/LinkPreview)
 ![Total download](https://img.shields.io/github/downloads/arhanashik/LinkPreview/total.svg)
