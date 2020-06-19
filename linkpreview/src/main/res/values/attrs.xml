@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="LinkPreview">
+        <attr name="url" format="string"/>
+        <attr name="previewStyle" format="enum">
+            <enum name="simple" value="0"/>
+            <enum name="banner" value="1"/>
+            <enum name="strip" value="2"/>
+            <enum name="details" value="3"/>
+        </attr>
+    </declare-styleable>
+</resources>
