@@ -25,7 +25,7 @@ import kotlinx.coroutines.launch
 
 class LinkPreview @JvmOverloads constructor(
     context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
-) : ConstraintLayout(context, attrs, defStyleAttr) {
+): ConstraintLayout(context, attrs, defStyleAttr) {
 
     var mMetaData =  MetaData()
     private var mUrl = ""
@@ -38,7 +38,7 @@ class LinkPreview @JvmOverloads constructor(
 
         initView()
 
-        if(mUrl.isNotEmpty()) preview(mUrl)
+        if(mUrl.isNotEmpty()) load(mUrl)
     }
 
     private fun readAttrs(attrs: AttributeSet) {
@@ -55,6 +55,9 @@ class LinkPreview @JvmOverloads constructor(
 
                 //get default url
                 getString(R.styleable.LinkPreview_url)?.let { mUrl = it }
+
+                //get defaultClick enable state
+                mIsDefaultClick = getBoolean(R.styleable.LinkPreview_enableDefaultClick, true)
             } finally {
                 recycle()
             }
@@ -129,16 +132,12 @@ class LinkPreview @JvmOverloads constructor(
 
         //set click listener
         rich_link_card.setOnClickListener { view ->
-            if (mIsDefaultClick) richLinkClicked() else {
-                mListener?.onClick(view, mMetaData)
-                if (mListener == null) {
-                    richLinkClicked()
-                }
-            }
+            mListener?.onClick(view, mMetaData)
+            if (mListener == null && mIsDefaultClick) onLinkClicked()
         }
     }
 
-    private fun richLinkClicked() {
+    private fun onLinkClicked() {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(mUrl))
         context.startActivity(intent)
     }
@@ -156,7 +155,7 @@ class LinkPreview @JvmOverloads constructor(
         setData()
     }
 
-    fun preview(url: String, callback: LinkViewCallback? = null) {
+    fun load(url: String, callback: LinkViewCallback? = null) {
         mUrl = url
         UrlParser(url, object : ParserCallback {
             override fun onData(metaData: MetaData) {

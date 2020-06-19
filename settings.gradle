@@ -1,3 +1,2 @@
-include ':linkpreview'
-include ':app'
+include ':app', ':linkpreview'
 rootProject.name = "LinkPreviewExample"

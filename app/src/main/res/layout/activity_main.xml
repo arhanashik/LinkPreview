@@ -6,13 +6,48 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <com.workfort.linkpreview.LinkPreview
+        android:id="@+id/linkPreview"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:url="https://facebook.com"
+        app:previewStyle="simple"
+        app:layout_constraintBottom_toTopOf="@id/linkPreviewBanner"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.workfort.linkpreview.LinkPreview
+        android:id="@+id/linkPreviewBanner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:url="https://skype.com"
+        app:previewStyle="banner"
+        app:layout_constraintBottom_toTopOf="@id/linkPreviewStrip"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linkPreview" />
+
+    <com.workfort.linkpreview.LinkPreview
+        android:id="@+id/linkPreviewStrip"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:url="https://github.com/arhanashik"
+        app:previewStyle="strip"
+        app:layout_constraintBottom_toTopOf="@id/linkPreviewDetails"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linkPreviewBanner" />
+
+    <com.workfort.linkpreview.LinkPreview
+        android:id="@+id/linkPreviewDetails"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:url="https://stackoverflow.com"
+        app:previewStyle="details"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/linkPreviewStrip" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

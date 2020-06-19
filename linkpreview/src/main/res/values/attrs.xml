@@ -8,5 +8,6 @@
             <enum name="strip" value="2"/>
             <enum name="details" value="3"/>
         </attr>
+        <attr name="enableDefaultClick" format="boolean"/>
     </declare-styleable>
 </resources>
