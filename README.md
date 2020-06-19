@@ -50,7 +50,7 @@ Update **res->values->style.xml** file. Replace base application theme with the 
 ```
 That's it. You are good to go!
 ## How to use
-Add **LinkPreview** widget in XML as below
+Add **LinkPreview** widget in XML
 ```
 <com.workfort.linkpreview.LinkPreview
     android:id="@+id/linkPreview"
@@ -58,11 +58,11 @@ Add **LinkPreview** widget in XML as below
     android:layout_height="wrap_content"
     app:url="https://stackoverflow.com" />
 ```
-You can change the url at runtime from your java/kotin code.
+You can change the url at runtime
 ```
 linkPreview.load("your-url")
 ```
-If can also add a callback(optional):
+You can also add a callback(optional):
 ```
 linkPreview.load(url, object: LinkViewCallback {
     override fun onSuccess(data: MetaData) {
@@ -81,11 +81,7 @@ For changing the view use `app:previewStyle`:
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     app:url="https://facebook.com"
-    app:previewStyle="banner"
-    app:layout_constraintBottom_toTopOf="@id/linkPreviewBanner"
-    app:layout_constraintLeft_toLeftOf="parent"
-    app:layout_constraintRight_toRightOf="parent"
-    app:layout_constraintTop_toTopOf="parent" />
+    app:previewStyle="banner" />
 ```
 When clicking on the link, by default the library opens the link on a browser. If you want to handle the click event by yourself use the following callback:
 ```
