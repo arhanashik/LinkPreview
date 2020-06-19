@@ -9,6 +9,8 @@ latest kotlin language including **coroutine**, **coil** and google's **material
 ![License](https://img.shields.io/github/license/arhanashik/LinkPreview)
 
 ## Preview
+|Screenshot|Preview|
+|---|---|
 |<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>|<img src="app/sampledata/preview.gif" alt="App Preview" width="250"/>|
 
 ## Setup
