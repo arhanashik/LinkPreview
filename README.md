@@ -8,7 +8,22 @@ An android library to add link preview in any android application.
 [![License](https://img.shields.io/github/license/arhanashik/LinkPreview)
 
 ## Preview
-![Screen Shot](app/sampledata/screenshot.png){:height="36px" width="36px"}
+<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>
+
+## How to use
+Add it in your root build.gradle at the end of repositories:
+```
+allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+Add the dependency:
+```
+implementation 'com.github.arhanashik:LinkPreview:1.0.0'
+```
 
 ## License
                                  Apache License
