@@ -9,9 +9,9 @@ latest kotlin language including **coroutine**, **coil** and google's **material
 ![License](https://img.shields.io/github/license/arhanashik/LinkPreview)
 
 ## Preview
-|Screenshot|Preview|
+|Screenshot-v1.0.0|Preview|Screenshot-v1.1.0|
 |---|---|
-|<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>|<img src="app/sampledata/preview.gif" alt="App Preview" width="250"/>|
+|<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="250"/>|<img src="app/sampledata/preview.gif" alt="App Preview" width="250"/>|<img src="app/sampledata/screenshot_v_1_1_0.png" alt="Screen Shot" width="250"/>|
 
 ## Setup
 **Step 1:** Add it in your root build.gradle at the end of repositories:
@@ -100,8 +100,11 @@ By overriding the click listener the default click action will be disabled.
 |name|value|description|
 |---|---|---|
 |app:url|string|Url to preview. Default is empty.|
-|app:previewStyle|simple/banner/strip/details|View for the LinkPreview widget.|
+|app:previewStyle|simple/banner/strip/details/large|View for the LinkPreview widget.|
 |app:enableDefaultClick|boolean|Open the link if clicked. True by default.|
+|app:borderRadius|dimension|Corner radius of the background. Default 10dp|
+|app:shadow|dimension|Elevation of the card. Default 5dp|
+|app:backgroundColor|color|Background of the card.(Only for the large style. Default Black)|
 
 ## Advance
 1. If you want to use your own preview, use the following callback:
@@ -125,6 +128,17 @@ linkPreview.loadFromMetaData(your-MetaData-here)
 ## Others
 For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
+
+## Version:
+### 1.0.0
+------------
+Preview style: simple/banner/strip/details
+
+### 1.1.0
+------------
+New Preview style: large
+New attributes: borderRadius, shadow, backgroundColor
+
 
 ## Thanks!
 Thank you for reading and using the library!

@@ -7,7 +7,11 @@
             <enum name="banner" value="1"/>
             <enum name="strip" value="2"/>
             <enum name="details" value="3"/>
+            <enum name="large" value="4"/>
         </attr>
         <attr name="enableDefaultClick" format="boolean"/>
+        <attr name="borderRadius" format="dimension"/>
+        <attr name="shadow" format="dimension"/>
+        <attr name="backgroundColor" format="color" />
     </declare-styleable>
 </resources>

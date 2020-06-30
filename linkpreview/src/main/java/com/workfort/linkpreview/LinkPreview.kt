@@ -2,6 +2,7 @@ package com.workfort.linkpreview
 
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.util.AttributeSet
 import android.view.View
@@ -10,6 +11,7 @@ import coil.api.load
 import com.workfort.linkpreview.callback.LinkClickListener
 import com.workfort.linkpreview.callback.LinkViewCallback
 import com.workfort.linkpreview.callback.ParserCallback
+import com.workfort.linkpreview.util.Helper
 import com.workfort.linkpreview.util.LinkParser
 import kotlinx.android.synthetic.main.layout_link_preview.view.loader
 import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_card
@@ -29,6 +31,9 @@ class LinkPreview @JvmOverloads constructor(
     private var mPreviewStyle = PreviewStyle.SIMPLE
     private var mIsDefaultClick = true
     private var mListener: LinkClickListener? = null
+    private var mCornerRadius = 10f
+    private var mShadow = 10f
+    private var mBackgroundColor = Color.BLACK
 
     init {
         readAttrs(attrs)
@@ -55,6 +60,15 @@ class LinkPreview @JvmOverloads constructor(
 
                 //get defaultClick enable state
                 mIsDefaultClick = getBoolean(R.styleable.LinkPreview_enableDefaultClick, true)
+
+                //get corner radius
+                mCornerRadius = getDimension(R.styleable.LinkPreview_borderRadius, Helper.dpToPx(context, 10))
+
+                //get elevation
+                mShadow = getDimension(R.styleable.LinkPreview_shadow, Helper.dpToPx(context, 5))
+
+                //get background color
+                mBackgroundColor = getColor(R.styleable.LinkPreview_backgroundColor, Color.BLACK)
             } finally {
                 recycle()
             }
@@ -67,9 +81,15 @@ class LinkPreview @JvmOverloads constructor(
             PreviewStyle.BANNER -> R.layout.layout_link_preview_banner
             PreviewStyle.STRIP -> R.layout.layout_link_preview_strip
             PreviewStyle.DETAILS -> R.layout.layout_link_preview_details
+            PreviewStyle.LARGE -> R.layout.layout_link_preview_large
         }
 
         inflate(context, viewId, this)
+        rich_link_card.radius = mCornerRadius
+        rich_link_card.cardElevation = mShadow
+        if(mPreviewStyle == PreviewStyle.LARGE) {
+            rich_link_card.setCardBackgroundColor(mBackgroundColor)
+        }
     }
 
     private fun setData() {
@@ -112,8 +132,8 @@ class LinkPreview @JvmOverloads constructor(
             rich_link_image.load(mMetaData.imageUrl)
         }
 
-        //set favicon for Skype
-        if(mPreviewStyle == PreviewStyle.BANNER) {
+        //set favicon
+        if(mPreviewStyle == PreviewStyle.BANNER || mPreviewStyle == PreviewStyle.LARGE) {
             if (mMetaData.favicon.isNullOrEmpty()) {
                 rich_link_favicon.visibility = View.GONE
             } else {
@@ -122,7 +142,7 @@ class LinkPreview @JvmOverloads constructor(
             }
         }
 
-        //set main url for telegram
+        //set main url
         if(mPreviewStyle == PreviewStyle.DETAILS) {
             rich_link_original_url.text = mUrl
         }
