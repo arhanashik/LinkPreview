@@ -10,7 +10,7 @@ latest kotlin language including **coroutine**, **coil** and google's **material
 
 ## Preview
 |Screenshot_v1.0.0|Preview|Screenshot_v1.1.0|
-|---|---|
+|---|---|---|
 |<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="150">|<img src="app/sampledata/preview.gif" alt="App Preview" width="150">|<img src="app/sampledata/screenshot_v_1_1_0.png" alt="Screen Shot" width="150">|
 
 ## Setup
