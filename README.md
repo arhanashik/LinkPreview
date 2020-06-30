@@ -129,14 +129,15 @@ linkPreview.loadFromMetaData(your-MetaData-here)
 For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
-## Version:
+## Changelog:
 ### 1.0.0
 ------------
 Preview style: simple/banner/strip/details
 
 ### 1.1.0
 ------------
-New Preview style: large
+New Preview style: large.
+
 New attributes: borderRadius, shadow, backgroundColor
 
 
