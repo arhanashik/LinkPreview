@@ -25,7 +25,7 @@ allprojects {
 ```
 Add the dependency:
 ```
-implementation 'com.github.arhanashik:LinkPreview:1.1.0'
+implementation 'com.github.arhanashik:LinkPreview:1.1.1'
 ```
 **Step 2:** You need to add Java 8 support(Necessary for coil):
 ```
@@ -139,6 +139,11 @@ Preview style: simple/banner/strip/details
 New Preview style: large.
 
 New attributes: borderRadius, shadow, backgroundColor
+
+### 1.1.1
+------------
+- IllegalArgumentException handled for Malformed url exception. 
+- Also Generalized Exception is added for any kind of exception.(Future scope to improve)
 
 
 ## Thanks!

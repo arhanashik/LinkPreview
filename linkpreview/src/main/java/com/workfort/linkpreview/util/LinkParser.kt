@@ -27,15 +27,23 @@ class LinkParser(private val url: String, private val callback: ParserCallback) 
                     val doc = Jsoup.connect(url).timeout(30 * 1000).get()
                     val metaData = parseDoc(url, doc)
 
+                    withContext(Dispatchers.Main) { callback.onData(metaData) }
+                } catch (ex: IllegalArgumentException) {
+                    ex.printStackTrace()
                     withContext(Dispatchers.Main) {
-                        callback.onData(metaData)
+                        callback.onError(Exception("Invalid url: $url. ${ex.localizedMessage}"))
                     }
-                }catch (ex: IOException) {
+                } catch (ex: IOException) {
                     ex.printStackTrace()
                     withContext(Dispatchers.Main) {
                         callback.onError(
                             Exception("No Html Received from $url. ${ex.localizedMessage}")
                         )
+                    }
+                } catch (ex: Exception) {
+                    ex.printStackTrace()
+                    withContext(Dispatchers.Main) {
+                        callback.onError(Exception(ex))
                     }
                 }
             }
