@@ -136,7 +136,9 @@ The library is free to use. If you wish to improve it, please create a separate 
 ## Changelog:
 ### 1.2.1
 ------------
-- New attributes: shadowInside(For details check Parameters section)
+- New attributes: shadowInside. If set to false the shadow of the background will be outside of the 
+card width and height. If true, it will be inside. This solves an issue while setting the shadow 0.
+Now, if shadow is 0, the card will get the full given width and height.
 
 ### 1.2.0
 ------------
