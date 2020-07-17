@@ -24,7 +24,7 @@ allprojects {
 ```
 Add the dependency:
 ```
-implementation 'com.github.arhanashik:LinkPreview:1.2.2'
+implementation 'com.github.arhanashik:LinkPreview:1.2.3'
 ```
 **Step 2:** You need to add Java 8 support(Necessary for coil):
 ```
@@ -126,7 +126,7 @@ LinkParser(url, object : ParserCallback {
 ```
 2. If you want to customize the data shown in the built in view, change the **linkData** or create your own LinkData model and update LinkPreview:
 ```
-linkPreview.loadFromLinkData(your-LinkData-here)
+linkPreview.load(your-LinkData-here)
 ```
 
 ## Others
