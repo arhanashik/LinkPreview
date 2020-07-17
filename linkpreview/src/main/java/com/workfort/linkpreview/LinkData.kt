@@ -1,6 +1,10 @@
 package com.workfort.linkpreview
 
-data class MetaData (
+import android.os.Parcelable
+import kotlinx.android.parcel.Parcelize
+
+@Parcelize
+data class LinkData (
     var url: String? = "",
     var imageUrl: String? = "",
     var title: String? = "",
@@ -8,4 +12,4 @@ data class MetaData (
     var siteName: String? = "",
     var mediaType: String? = "",
     var favicon: String? = ""
-)
+): Parcelable

@@ -1,7 +1,7 @@
 package com.workfort.linkpreview.util
 
 import android.webkit.URLUtil
-import com.workfort.linkpreview.MetaData
+import com.workfort.linkpreview.LinkData
 import com.workfort.linkpreview.callback.ParserCallback
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -53,8 +53,8 @@ class LinkParser(private val url: String, private val callback: ParserCallback) 
     /*
     * Parse the document found from the given url
     * */
-    private suspend fun parseDoc(url: String, doc: Document): MetaData = withContext(Dispatchers.Default) {
-        val metaData = MetaData()
+    private suspend fun parseDoc(url: String, doc: Document): LinkData = withContext(Dispatchers.Default) {
+        val metaData = LinkData()
         val elements = doc.getElementsByTag("meta")
 
         //getTitle

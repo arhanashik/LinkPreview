@@ -26,7 +26,7 @@ class LinkPreview @JvmOverloads constructor(
     context: Context, attrs: AttributeSet, defStyleAttr: Int = 0
 ): ConstraintLayout(context, attrs, defStyleAttr) {
 
-    var mMetaData =  MetaData()
+    var mMetaData =  LinkData()
     private var mUrl = ""
     private var mPreviewStyle = PreviewStyle.SIMPLE
     private var mIsDefaultClick = true
@@ -201,18 +201,18 @@ class LinkPreview @JvmOverloads constructor(
         this.mListener = listener
     }
 
-    fun loadFromMetaData(metaData: MetaData) {
-        this.mMetaData = metaData
+    fun loadFromMetaData(linkData: LinkData) {
+        this.mMetaData = linkData
         setData()
     }
 
     fun load(url: String, callback: LinkViewCallback? = null) {
         mUrl = url
         LinkParser(url, object : ParserCallback {
-            override fun onData(metaData: MetaData) {
-                mMetaData = metaData
+            override fun onData(linkData: LinkData) {
+                mMetaData = linkData
                 setData()
-                callback?.onSuccess(metaData)
+                callback?.onSuccess(linkData)
             }
 
             override fun onError(exception: Exception) {

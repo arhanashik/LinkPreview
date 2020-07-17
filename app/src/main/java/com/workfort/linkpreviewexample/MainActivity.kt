@@ -6,7 +6,7 @@ import android.view.View
 import android.widget.EditText
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
-import com.workfort.linkpreview.MetaData
+import com.workfort.linkpreview.LinkData
 import com.workfort.linkpreview.callback.LinkClickListener
 import com.workfort.linkpreview.callback.LinkViewCallback
 import kotlinx.android.synthetic.main.activity_main.*
@@ -16,7 +16,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
         super.onCreate(savedInstanceState)
 
         linkPreview.setClickListener(object: LinkClickListener {
-            override fun onClick(view: View, metaData: MetaData) {
+            override fun onClick(view: View, linkData: LinkData) {
                 inputNewUrl()
             }
         })
@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
 
     private fun loadNewUrl(url: String) {
         linkPreview.load(url, object: LinkViewCallback {
-            override fun onSuccess(data: MetaData) {
+            override fun onSuccess(data: LinkData) {
                 Log.d("LinkPreview", "Loaded: $url")
             }
 

@@ -1,8 +1,8 @@
 package com.workfort.linkpreview.callback
 
 import android.view.View
-import com.workfort.linkpreview.MetaData
+import com.workfort.linkpreview.LinkData
 
 interface LinkClickListener {
-    fun onClick(view: View, metaData: MetaData)
+    fun onClick(view: View, linkData: LinkData)
 }

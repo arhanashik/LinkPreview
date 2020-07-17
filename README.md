@@ -24,7 +24,7 @@ allprojects {
 ```
 Add the dependency:
 ```
-implementation 'com.github.arhanashik:LinkPreview:1.2.1'
+implementation 'com.github.arhanashik:LinkPreview:1.2.2'
 ```
 **Step 2:** You need to add Java 8 support(Necessary for coil):
 ```
@@ -134,6 +134,11 @@ For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
 ## Changelog:
+### 1.2.2
+------------
+- MetaData(data class for the data from the url) is renamed as LinkData
+- Parcelable support for LinkData class
+
 ### 1.2.1
 ------------
 - New attributes: shadowInside. If set to false the shadow of the background will be outside of the 

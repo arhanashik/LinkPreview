@@ -1,8 +1,8 @@
 package com.workfort.linkpreview.callback
 
-import com.workfort.linkpreview.MetaData
+import com.workfort.linkpreview.LinkData
 
 interface ParserCallback {
-    fun onData(metaData: MetaData)
+    fun onData(linkData: LinkData)
     fun onError(exception: Exception)
 }
