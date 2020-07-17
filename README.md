@@ -67,7 +67,7 @@ linkPreview.load("your-url")
 You can also add a callback(optional):
 ```
 linkPreview.load(url, object: LinkViewCallback {
-    override fun onSuccess(data: MetaData) {
+    override fun onSuccess(data: LinkData) {
         Log.d("LinkPreview", "Loaded: $url")
     }
 
@@ -88,7 +88,7 @@ For changing the view use `app:previewStyle`:
 When clicked on the link, by default the library opens the link on a browser. For handling the click event:
 ```
 linkPreview.setClickListener(object: LinkClickListener {
-    override fun onClick(view: View, metaData: MetaData) {
+    override fun onClick(view: View, metaData: LinkData) {
         //Customise the click action
     }
 })
@@ -114,7 +114,7 @@ By overriding the click listener the default click action will be disabled.
 1. If you want to use your own preview, use the following callback:
 ```
 LinkParser(url, object : ParserCallback {
-    override fun onData(metaData: MetaData) {
+    override fun onData(linkData: LinkData) {
         //Use metaData to get title, image, description etc
         //and set that to your custom view
     }
@@ -124,9 +124,9 @@ LinkParser(url, object : ParserCallback {
     }
 }).parse()
 ```
-2. If you want to customize the data shown in the built in view, change the **metaData** and update LinkPreview:
+2. If you want to customize the data shown in the built in view, change the **linkData** or create your own LinkData model and update LinkPreview:
 ```
-linkPreview.loadFromMetaData(your-MetaData-here)
+linkPreview.loadFromLinkData(your-LinkData-here)
 ```
 
 ## Others
@@ -134,6 +134,10 @@ For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
 ## Changelog:
+### 1.2.3
+------------
+- function name changed from "loadFromMetaData(linkData)" to "load(linkData)"
+
 ### 1.2.2
 ------------
 - MetaData(data class for the data from the url) is renamed as LinkData

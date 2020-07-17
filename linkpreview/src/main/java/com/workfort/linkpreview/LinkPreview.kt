@@ -201,7 +201,7 @@ class LinkPreview @JvmOverloads constructor(
         this.mListener = listener
     }
 
-    fun loadFromMetaData(linkData: LinkData) {
+    fun load(linkData: LinkData) {
         this.mMetaData = linkData
         setData()
     }
