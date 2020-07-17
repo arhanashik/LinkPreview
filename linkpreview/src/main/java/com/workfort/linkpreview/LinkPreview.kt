@@ -106,6 +106,7 @@ class LinkPreview @JvmOverloads constructor(
         inflate(context, viewId, this)
         lp_card.radius = mCornerRadius
         lp_card.cardElevation = mShadow
+        lp_card.useCompatPadding = mShadow > 0f
         lp_card.setCardBackgroundColor(mBackgroundColor)
         lp_title.setTextColor(mTitleColor)
         lp_desp.setTextColor(mDescriptionColor)
