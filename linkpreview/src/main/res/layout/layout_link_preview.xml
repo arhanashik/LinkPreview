@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView
-    android:id="@+id/rich_link_card"
+    android:id="@+id/lp_card"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -16,7 +16,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
-            android:id="@+id/rich_link_image"
+            android:id="@+id/lp_image"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintWidth_percent="0.28"
@@ -28,11 +28,11 @@
             tools:ignore="ContentDescription" />
 
         <TextView
-            android:id="@+id/rich_link_title"
+            android:id="@+id/lp_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            app:layout_constraintStart_toEndOf="@id/rich_link_image"
+            app:layout_constraintStart_toEndOf="@id/lp_image"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             tools:text="@tools:sample/lorem/random"
@@ -43,12 +43,12 @@
             android:ellipsize="end"/>
 
         <TextView
-            android:id="@+id/rich_link_desp"
+            android:id="@+id/lp_desp"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/rich_link_title"
-            app:layout_constraintTop_toBottomOf="@id/rich_link_title"
-            app:layout_constraintEnd_toEndOf="@id/rich_link_title"
+            app:layout_constraintStart_toStartOf="@id/lp_title"
+            app:layout_constraintTop_toBottomOf="@id/lp_title"
+            app:layout_constraintEnd_toEndOf="@id/lp_title"
             tools:text="@tools:sample/lorem/random"
             android:textSize="14sp"
             android:textColor="@color/blue_grey_300"
@@ -57,19 +57,19 @@
             android:padding="2dp"/>
 
         <TextView
-            android:id="@+id/rich_link_url"
+            android:id="@+id/lp_url"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            app:layout_constraintStart_toStartOf="@id/rich_link_title"
-            app:layout_constraintTop_toBottomOf="@id/rich_link_desp"
-            app:layout_constraintEnd_toEndOf="@id/rich_link_title"
+            app:layout_constraintStart_toStartOf="@id/lp_title"
+            app:layout_constraintTop_toBottomOf="@id/lp_desp"
+            app:layout_constraintEnd_toEndOf="@id/lp_title"
             tools:text="@tools:sample/lorem/random"
             android:textColor="@color/blue_grey_700"
             android:singleLine="true"
             android:ellipsize="end" />
 
         <ProgressBar
-            android:id="@+id/loader"
+            android:id="@+id/lp_loader"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="parent"

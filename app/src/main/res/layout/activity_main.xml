@@ -28,6 +28,9 @@
             android:layout_marginEnd="10dp"
             app:url="https://skype.com"
             app:previewStyle="banner"
+            app:titleColor="@android:color/white"
+            app:descriptionColor="@android:color/white"
+            app:linkColor="@android:color/white"
             app:layout_constraintTop_toBottomOf="@id/linkPreview" />
 
         <com.workfort.linkpreview.LinkPreview
@@ -57,11 +60,12 @@
             android:layout_marginStart="16dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="16dp"
-            app:url="https://google.com"
+            app:url="https://www.youtube.com/watch?v=-IJuKT1mHO8"
             app:previewStyle="large"
             app:borderRadius="10dp"
             app:shadow="0dp"
-            app:backgroundColor="@color/colorPrimary"
+            app:backgroundColor="@color/md_grey_200"
+            app:descriptionColor="@color/md_grey_600"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toBottomOf="@id/linkPreviewDetails" />

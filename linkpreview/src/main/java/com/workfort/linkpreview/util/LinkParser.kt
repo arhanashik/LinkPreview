@@ -21,7 +21,7 @@ class LinkParser(private val url: String, private val callback: ParserCallback) 
     * Start parsing the html from the given url
     * */
     fun parse() {
-        CoroutineScope(Dispatchers.Default).launch {
+        CoroutineScope(Dispatchers.IO).launch {
             withContext(Dispatchers.IO) {
                 try {
                     val doc = Jsoup.connect(url).timeout(30 * 1000).get()

@@ -1,6 +1,8 @@
 package com.workfort.linkpreview.util
 
 import android.content.Context
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 
 /**
  * ****************************************************************************
@@ -21,5 +23,9 @@ import android.content.Context
 object Helper {
     fun dpToPx(context: Context, dp: Int): Float {
         return (dp * context.resources.displayMetrics.density)
+    }
+
+    fun getColor(context: Context, @ColorRes colorRes: Int): Int {
+        return ContextCompat.getColor(context, colorRes)
     }
 }

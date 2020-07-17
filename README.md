@@ -5,13 +5,12 @@ latest kotlin language including **coroutine**, **coil** and google's **material
 
 [![Latest version](https://jitpack.io/v/arhanashik/LinkPreview.svg)](https://jitpack.io/#arhanashik/LinkPreview)
 ![Code Size](https://img.shields.io/github/languages/code-size/arhanashik/LinkPreview)
-![Total download](https://img.shields.io/github/downloads/arhanashik/LinkPreview/total.svg)
 ![License](https://img.shields.io/github/license/arhanashik/LinkPreview)
 
 ## Preview
-|Screenshot_v1.0.0|Screenshot_v1.1.0|Preview|
+|Screenshot_v1.2.0|Screenshot_v1.1.0|Screenshot_v1.0.0|Preview|
 |---|---|---|
-|<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="200">|<img src="app/sampledata/screenshot_v_1_1_0.png" alt="Screen Shot" width="200">|<img src="app/sampledata/preview.gif" alt="App Preview" width="200">|
+|<img src="app/sampledata/screenshot_v_1_2_0.png" alt="Screen Shot" width="150">|<img src="app/sampledata/screenshot_v_1_1_0.png" alt="Screen Shot" width="150">|<img src="app/sampledata/screenshot.png" alt="Screen Shot" width="150">|<img src="app/sampledata/preview.gif" alt="App Preview" width="150">|
 
 ## Setup
 **Step 1:** Add it in your root build.gradle at the end of repositories:
@@ -104,7 +103,11 @@ By overriding the click listener the default click action will be disabled.
 |app:enableDefaultClick|boolean|Open the link if clicked. True by default.|
 |app:borderRadius|dimension|Corner radius of the background. Default 10dp|
 |app:shadow|dimension|Elevation of the card. Default 5dp|
-|app:backgroundColor|color|Background of the card.(Only for the large style. Default Black)|
+|app:backgroundColor|color|Background of the card. Default White|
+|app:titleColor|color|Color of the title. Default Black|
+|app:descriptionColor|color|Description of the content. Default #90A4AE|
+|app:linkColor|color|Color of the link.(Except the strip. Default #03A9F4)|
+|app:originalLinkColor|color|Color of the original link.(Only for details style. Default #29B6FC)|
 
 ## Advance
 1. If you want to use your own preview, use the following callback:
@@ -130,21 +133,27 @@ For more information please check the sample project.
 The library is free to use. If you wish to improve it, please create a separate branch and make pull request.
 
 ## Changelog:
-### 1.0.0
+### 1.2.0
 ------------
-Preview style: simple/banner/strip/details
-
-### 1.1.0
-------------
-New Preview style: large.
-
-New attributes: borderRadius, shadow, backgroundColor
+- New attributes: titleColor, descriptionColor, linkColor, originalLinkColor(For details check Parameters section)
+- Background color is changeable for all the cards
+- Default background color is changed from black to white.
+- Performance optimization
 
 ### 1.1.1
 ------------
 - IllegalArgumentException handled for Malformed url exception. 
 - Also Generalized Exception is added for any kind of exception.(Future scope to improve)
 
+### 1.1.0
+------------
+- New Preview style: large.
+
+- New attributes: borderRadius, shadow, backgroundColor
+
+### 1.0.0
+------------
+Preview style: simple/banner/strip/details
 
 ## Thanks!
 Thank you for reading and using the library!

@@ -13,5 +13,9 @@
         <attr name="borderRadius" format="dimension"/>
         <attr name="shadow" format="dimension"/>
         <attr name="backgroundColor" format="color" />
+        <attr name="titleColor" format="color" />
+        <attr name="descriptionColor" format="color" />
+        <attr name="linkColor" format="color" />
+        <attr name="originalLinkColor" format="color" />
     </declare-styleable>
 </resources>

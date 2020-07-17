@@ -13,12 +13,12 @@ import com.workfort.linkpreview.callback.LinkViewCallback
 import com.workfort.linkpreview.callback.ParserCallback
 import com.workfort.linkpreview.util.Helper
 import com.workfort.linkpreview.util.LinkParser
-import kotlinx.android.synthetic.main.layout_link_preview.view.loader
-import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_card
-import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_desp
-import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_image
-import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_title
-import kotlinx.android.synthetic.main.layout_link_preview.view.rich_link_url
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_loader
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_card
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_desp
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_image
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_title
+import kotlinx.android.synthetic.main.layout_link_preview.view.lp_url
 import kotlinx.android.synthetic.main.layout_link_preview_banner.view.*
 import kotlinx.android.synthetic.main.layout_link_preview_details.view.*
 
@@ -33,7 +33,11 @@ class LinkPreview @JvmOverloads constructor(
     private var mListener: LinkClickListener? = null
     private var mCornerRadius = 10f
     private var mShadow = 10f
-    private var mBackgroundColor = Color.BLACK
+    private var mBackgroundColor = Color.WHITE
+    private var mTitleColor = Color.BLACK
+    private var mDescriptionColor = Color.BLACK
+    private var mLinkColor = Color.BLACK
+    private var mOriginalLinkColor = Color.BLACK
 
     init {
         readAttrs(attrs)
@@ -68,7 +72,22 @@ class LinkPreview @JvmOverloads constructor(
                 mShadow = getDimension(R.styleable.LinkPreview_shadow, Helper.dpToPx(context, 5))
 
                 //get background color
-                mBackgroundColor = getColor(R.styleable.LinkPreview_backgroundColor, Color.BLACK)
+                mBackgroundColor = getColor(R.styleable.LinkPreview_backgroundColor, Color.WHITE)
+
+                //get title color
+                mTitleColor = getColor(R.styleable.LinkPreview_titleColor, Color.BLACK)
+
+                //get description color
+                mDescriptionColor = getColor(R.styleable.LinkPreview_descriptionColor,
+                    Helper.getColor(context, R.color.blue_grey_300))
+
+                //get link color
+                mLinkColor = getColor(R.styleable.LinkPreview_linkColor,
+                    Helper.getColor(context, R.color.light_blue_500))
+
+                //get original link color
+                mOriginalLinkColor = getColor(R.styleable.LinkPreview_originalLinkColor,
+                    Helper.getColor(context, R.color.light_blue_400))
             } finally {
                 recycle()
             }
@@ -85,70 +104,76 @@ class LinkPreview @JvmOverloads constructor(
         }
 
         inflate(context, viewId, this)
-        rich_link_card.radius = mCornerRadius
-        rich_link_card.cardElevation = mShadow
-        if(mPreviewStyle == PreviewStyle.LARGE) {
-            rich_link_card.setCardBackgroundColor(mBackgroundColor)
+        lp_card.radius = mCornerRadius
+        lp_card.cardElevation = mShadow
+        lp_card.setCardBackgroundColor(mBackgroundColor)
+        lp_title.setTextColor(mTitleColor)
+        lp_desp.setTextColor(mDescriptionColor)
+        if(mPreviewStyle != PreviewStyle.STRIP) {
+            lp_url.setTextColor(mLinkColor)
+        }
+        if(mPreviewStyle == PreviewStyle.DETAILS) {
+            lp_original_url.setTextColor(mOriginalLinkColor)
         }
     }
 
     private fun setData() {
-        loader.visibility = View.GONE
+        lp_loader.visibility = View.GONE
 
         //set title
         if (mMetaData.title.isNullOrEmpty()) {
-            rich_link_title.visibility = View.GONE
+            lp_title.visibility = View.GONE
         } else {
-            rich_link_title.visibility = View.VISIBLE
-            rich_link_title.text = mMetaData.title
+            lp_title.visibility = View.VISIBLE
+            lp_title.text = mMetaData.title
         }
 
         //set description
         if (mMetaData.description.isNullOrEmpty()) {
-            rich_link_desp.visibility = View.GONE
+            lp_desp.visibility = View.GONE
         } else {
-            rich_link_desp.visibility = View.VISIBLE
-            rich_link_desp.text = mMetaData.description
+            lp_desp.visibility = View.VISIBLE
+            lp_desp.text = mMetaData.description
         }
 
         //set url
         if(mPreviewStyle != PreviewStyle.STRIP) {
             if (mMetaData.url.isNullOrEmpty()) {
-                rich_link_url.visibility = View.GONE
+                lp_url.visibility = View.GONE
             } else {
-                rich_link_url.visibility = View.VISIBLE
-                rich_link_url.text = mMetaData.url
+                lp_url.visibility = View.VISIBLE
+                lp_url.text = mMetaData.url
                 if(mPreviewStyle != PreviewStyle.DETAILS) {
-                    rich_link_url.paint?.isUnderlineText = true
+                    lp_url.paint?.isUnderlineText = true
                 }
             }
         }
 
         //set image url
         if (mMetaData.imageUrl.isNullOrEmpty()) {
-            rich_link_image.visibility = View.GONE
+            lp_image.visibility = View.GONE
         } else {
-            rich_link_image.visibility = View.VISIBLE
-            rich_link_image.load(mMetaData.imageUrl)
+            lp_image.visibility = View.VISIBLE
+            lp_image.load(mMetaData.imageUrl)
         }
 
         //set favicon
         if(mPreviewStyle == PreviewStyle.BANNER || mPreviewStyle == PreviewStyle.LARGE) {
             if (mMetaData.favicon.isNullOrEmpty()) {
-                rich_link_favicon.visibility = View.GONE
+                lp_favicon.visibility = View.GONE
             } else {
-                rich_link_favicon.visibility = View.VISIBLE
-                rich_link_favicon.load(mMetaData.favicon)
+                lp_favicon.visibility = View.VISIBLE
+                lp_favicon.load(mMetaData.favicon)
             }
         }
 
         //set main url
         if(mPreviewStyle == PreviewStyle.DETAILS) {
-            rich_link_original_url.text = mUrl
+            lp_original_url.text = mUrl
         }
 
         //set click listener
-        rich_link_card.setOnClickListener { view ->
+        lp_card.setOnClickListener { view ->
             mListener?.onClick(view, mMetaData)
             if (mListener == null && mIsDefaultClick) onLinkClicked()
         }
