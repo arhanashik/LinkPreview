@@ -24,7 +24,7 @@ allprojects {
 ```
 Add the dependency:
 ```
-implementation 'com.github.arhanashik:LinkPreview:1.1.1'
+implementation 'com.github.arhanashik:LinkPreview:1.2.1'
 ```
 **Step 2:** You need to add Java 8 support(Necessary for coil):
 ```
