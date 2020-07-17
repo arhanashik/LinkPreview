@@ -17,5 +17,6 @@
         <attr name="descriptionColor" format="color" />
         <attr name="linkColor" format="color" />
         <attr name="originalLinkColor" format="color" />
+        <attr name="shadowInside" format="boolean" />
     </declare-styleable>
 </resources>

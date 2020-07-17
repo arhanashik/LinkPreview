@@ -38,6 +38,11 @@ class LinkPreview @JvmOverloads constructor(
     private var mDescriptionColor = Color.BLACK
     private var mLinkColor = Color.BLACK
     private var mOriginalLinkColor = Color.BLACK
+    /**
+     * Determines the shadow should be inside the card width or outside.
+     * It is done by the default attribute(useCompatPadding) of MaterialCardView
+     * */
+    private var mShadowInside = true
 
     init {
         readAttrs(attrs)
@@ -88,6 +93,9 @@ class LinkPreview @JvmOverloads constructor(
                 //get original link color
                 mOriginalLinkColor = getColor(R.styleable.LinkPreview_originalLinkColor,
                     Helper.getColor(context, R.color.light_blue_400))
+
+                //get original link color
+                mShadowInside = getBoolean(R.styleable.LinkPreview_shadowInside, true)
             } finally {
                 recycle()
             }
@@ -106,7 +114,7 @@ class LinkPreview @JvmOverloads constructor(
         inflate(context, viewId, this)
         lp_card.radius = mCornerRadius
         lp_card.cardElevation = mShadow
-        lp_card.useCompatPadding = mShadow > 0f
+        lp_card.useCompatPadding = mShadowInside
         lp_card.setCardBackgroundColor(mBackgroundColor)
         lp_title.setTextColor(mTitleColor)
         lp_desp.setTextColor(mDescriptionColor)

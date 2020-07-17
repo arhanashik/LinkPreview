@@ -108,6 +108,7 @@ By overriding the click listener the default click action will be disabled.
 |app:descriptionColor|color|Description of the content. Default #90A4AE|
 |app:linkColor|color|Color of the link.(Except the strip. Default #03A9F4)|
 |app:originalLinkColor|color|Color of the original link.(Only for details style. Default #29B6FC)|
+|app:shadowInside|boolean|Determines the shadow should be inside the card width or outside. True by default|
 
 ## Advance
 1. If you want to use your own preview, use the following callback:
@@ -135,7 +136,7 @@ The library is free to use. If you wish to improve it, please create a separate 
 ## Changelog:
 ### 1.2.0
 ------------
-- New attributes: titleColor, descriptionColor, linkColor, originalLinkColor(For details check Parameters section)
+- New attributes: titleColor, descriptionColor, linkColor, originalLinkColor, shadowInside(For details check Parameters section)
 - Background color is changeable for all the cards
 - Default background color is changed from black to white.
 - Performance optimization
