@@ -41,7 +41,7 @@ android {
 implementation 'com.google.android.material:material:1.3.0-alpha01'
 ```
 Update **res->values->style.xml** file. Replace base application theme with the following:
-```
+```xml
 <!-- Base application theme. -->
 <style name="AppTheme" parent="Theme.MaterialComponents.Light.DarkActionBar">
     <!-- Customize your theme here. -->
@@ -53,7 +53,7 @@ Update **res->values->style.xml** file. Replace base application theme with the 
 That's it. You are good to go!
 ## How to use
 Add **LinkPreview** widget in XML
-```
+```xml
 <com.workfort.linkpreview.LinkPreview
     android:id="@+id/linkPreview"
     android:layout_width="match_parent"
@@ -61,11 +61,11 @@ Add **LinkPreview** widget in XML
     app:url="https://stackoverflow.com" />
 ```
 You can change the url at runtime
-```
+```kotlin
 linkPreview.load("your-url")
 ```
 You can also add a callback(optional):
-```
+```kotlin
 linkPreview.load(url, object: LinkViewCallback {
     override fun onSuccess(data: LinkData) {
         Log.d("LinkPreview", "Loaded: $url")
@@ -77,7 +77,7 @@ linkPreview.load(url, object: LinkViewCallback {
 })
 ```
 For changing the view use `app:previewStyle`:
-```
+```xml
 <com.workfort.linkpreview.LinkPreview
     android:id="@+id/linkPreview"
     android:layout_width="match_parent"
@@ -86,7 +86,7 @@ For changing the view use `app:previewStyle`:
     app:previewStyle="banner" />
 ```
 When clicked on the link, by default the library opens the link on a browser. For handling the click event:
-```
+```kotlin
 linkPreview.setClickListener(object: LinkClickListener {
     override fun onClick(view: View, metaData: LinkData) {
         //Customise the click action
@@ -112,7 +112,7 @@ By overriding the click listener the default click action will be disabled.
 
 ## Advance
 1. If you want to use your own preview, use the following callback:
-```
+```kotlin
 LinkParser(url, object : ParserCallback {
     override fun onData(linkData: LinkData) {
         //Use metaData to get title, image, description etc
@@ -125,7 +125,7 @@ LinkParser(url, object : ParserCallback {
 }).parse()
 ```
 2. If you want to customize the data shown in the built in view, change the **linkData** or create your own LinkData model and update LinkPreview:
-```
+```kotlin
 linkPreview.load(your-LinkData-here)
 ```
 
